@@ -11,6 +11,6 @@ public class LoginDto {
     private String userName;
     private String password;
     private String version;
-    private int    aAuthType;
+    private int    authType;
 
 }

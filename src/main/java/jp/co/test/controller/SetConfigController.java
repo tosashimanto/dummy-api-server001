@@ -1,31 +1,25 @@
 package jp.co.test.controller;
 
-
 import jp.co.test.dto.LoginDto;
 import jp.co.test.dto.response.LoginDtoRes;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.concurrent.atomic.AtomicLong;
-
 @RestController
-@RequestMapping("/RecordDataAuthentication")
 @Slf4j
-public class LoginController {
+@RequestMapping("/SetConfig")
+public class SetConfigController {
 
-    private final AtomicLong counter = new AtomicLong();
-
-    @RequestMapping(value = "/100", method = {RequestMethod.POST}, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/{DeviceID}", method = {RequestMethod.POST}, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public LoginDtoRes login(@RequestBody LoginDto form){
+    public LoginDtoRes setDVRParameter(@RequestBody LoginDto form){
 
         log.info("UserName:{}", form.getUserName());
         log.info("Password:{}", form.getPassword());
         log.info("Version:{}", form.getVersion());
         log.info("AuthType:{}", form.getAuthType());
         LoginDtoRes dto = new LoginDtoRes();
-        dto.setSessionId(counter.incrementAndGet());
 
         return dto;
     }

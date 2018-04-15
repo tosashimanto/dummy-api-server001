@@ -13,7 +13,9 @@ public class SetConfigController {
 
     @RequestMapping(value = "/{DeviceID}", method = {RequestMethod.POST}, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public LoginDtoRes setDVRParameter(@RequestBody LoginDto form){
+    public LoginDtoRes setDVRParameter(@RequestBody LoginDto form, @PathVariable("DeviceID") String deviceID){
+
+        log.info("deviceID={}", deviceID);
 
         log.info("UserName:{}", form.getUserName());
         log.info("Password:{}", form.getPassword());

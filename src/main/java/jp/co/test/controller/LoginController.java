@@ -20,10 +20,10 @@ public class LoginController {
     @ResponseBody
     public LoginDtoRes login(@RequestBody LoginDto form){
 
-        log.info("UserName:{}", form.getUserName());
-        log.info("Password:{}", form.getPassword());
-        log.info("Version:{}", form.getVersion());
-        log.info("AuthType:{}", form.getAuthType());
+        log.info("Login UserName:{}", form.getUserName());
+        log.info("Login Password:{}", form.getPassword());
+        log.info("Login Version:{}", form.getVersion());
+        log.info("Login AuthType:{}", form.getAuthType());
         LoginDtoRes dto = new LoginDtoRes();
         dto.setSessionId(counter.incrementAndGet());
 

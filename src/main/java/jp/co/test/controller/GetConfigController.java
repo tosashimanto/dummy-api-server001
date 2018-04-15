@@ -1,10 +1,8 @@
 package jp.co.test.controller;
 
+import jp.co.test.dto.response.DeviceDto;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @Slf4j
@@ -12,11 +10,18 @@ import org.springframework.web.bind.annotation.RestController;
 public class GetConfigController {
 
     @RequestMapping(value = "/{DeviceID}", method = {RequestMethod.GET})
-    public String getDVRParameter(@RequestParam(value="UserName") String userName) {
+    public DeviceDto getDVRParameter(@PathVariable("DeviceID") String deviceID,
+                                     @RequestParam(value="User" ,required = true) String user,
+                                     @RequestParam(value="SessionId" ,required = true) Integer sessionIdß) {
 
 
-        System.out.println("test GetDeviceList");
+        log.info("deviceID={}", deviceID);
+        System.out.println("GetConfig ");
 
-        return "Yoshimasa MATSUMOTO OK!¥n";
+        DeviceDto dto = new DeviceDto();
+        dto.setMessage("this is OK.");
+        // dto.getThresholdInfo().setTest0Threshold("100");
+
+        return dto;
     }
 }

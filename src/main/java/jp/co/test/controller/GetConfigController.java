@@ -7,20 +7,20 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @Slf4j
 @RequestMapping("/GetConfig")
-public class GetConfigController {
+public class GetConfigController extends AbstractAPIController {
 
     @RequestMapping(value = "/{DeviceID}", method = {RequestMethod.GET})
     public DeviceDto getDVRParameter(@PathVariable("DeviceID") String deviceID,
                                      @RequestParam(value="User" ,required = true) String user,
-                                     @RequestParam(value="SessionId" ,required = true) Integer sessionIdß) {
+                                     @RequestParam(value="SessionId" ,required = true) Integer sessionId) {
 
 
         log.info("deviceID={}", deviceID);
-        System.out.println("GetConfig ");
+        checkSessionId(sessionId);
 
         DeviceDto dto = new DeviceDto();
         dto.setMessage("this is OK.");
-        // dto.getThresholdInfo().setTest0Threshold("100");
+        dto.getThresholdInfo().setTest0Threshold("980");
 
         return dto;
     }

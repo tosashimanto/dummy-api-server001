@@ -6,15 +6,16 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
 @Slf4j
 @RequestMapping("/GetDeviceList")
-public class GetDeviceListController {
+public class GetDeviceListController extends AbstractAPIController {
 
     @RequestMapping(value="/100", method = {RequestMethod.GET})
-    @ResponseStatus(value = HttpStatus.UNAUTHORIZED)
+    // @ResponseStatus(value = HttpStatus.UNAUTHORIZED)
     public ResultDto getDeviceList(@RequestParam(value="User" ,required = true) String user,
                                 @RequestParam(value="SessionId" ,required = true) Integer sessionId) {
 
@@ -26,16 +27,16 @@ public class GetDeviceListController {
 
         log.info("User={}", user);
         log.info("SessionId={}", sessionId);
-
+        checkSessionId(sessionId);
 
         Integer _sessionId = Optional.ofNullable(sessionId).orElse(-1);
-        if(sessionId == null) {
-            throw new AuthException();
-        }
+        checkSessionId(sessionId);
 
         ResultDto dto = new ResultDto();
-        dto.setResult(false);
+        dto.setResult(true);
         dto.setReason("success");
         return dto;
     }
+
+
 }

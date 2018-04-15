@@ -10,7 +10,7 @@ public class DeviceDto {
     private String message;
     private String deviceId;
     private String info;
-    private ThresholdInfo thresholdInfo;
+    private ThresholdInfo thresholdInfo = new ThresholdInfo();
 
     @Getter
     @Setter

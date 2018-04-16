@@ -16,8 +16,8 @@ public class GetDeviceListController extends AbstractAPIController {
 
     @RequestMapping(value="/100", method = {RequestMethod.GET})
     // @ResponseStatus(value = HttpStatus.UNAUTHORIZED)
-    public ResultDto getDeviceList(@RequestParam(value="User" ,required = true) String user,
-                                @RequestParam(value="SessionId" ,required = true) Integer sessionId) {
+    public ResultDto getDeviceList(@RequestParam(value="User" ,required = false) String user,
+                                @RequestParam(value="SessionId" ,required = false) Integer sessionId) {
 
 
         //Optional<String> hogeOpt = Optional.ofNullable(getHoge());

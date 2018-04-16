@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+
+
 public class AbstractAPIController {
 
     @ResponseStatus(value = HttpStatus.UNAUTHORIZED)
@@ -19,8 +21,9 @@ public class AbstractAPIController {
         return dto;
     }
 
+
     public void checkSessionId(Integer sessionId) {
-        if(sessionId == null) {
+        if(sessionId == null || sessionId== 0) {
             throw new AuthException();
         }
     }

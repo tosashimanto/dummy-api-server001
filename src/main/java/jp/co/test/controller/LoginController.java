@@ -26,7 +26,10 @@ public class LoginController {
         log.info("Login AuthType:{}", form.getAuthType());
         LoginDtoRes dto = new LoginDtoRes();
         dto.setSessionId(counter.incrementAndGet());
-
+        dto.setUserName(form.getUserName());
+        dto.setReason("success");
+        dto.setResult(false);
+        dto.setUserType(new Long(0));
         return dto;
     }
 }

@@ -28,7 +28,7 @@ public class LoginController {
         dto.setSessionId(counter.incrementAndGet());
         dto.setUserName(form.getUserName());
         dto.setReason("success");
-        dto.setResult(false);
+        dto.setResult(true);
         dto.setUserType(new Long(0));
         return dto;
     }

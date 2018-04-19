@@ -19,7 +19,7 @@ public class GreetingController {
                             String.format(template, name));
     }
 
-
+// test3
 //    @RequestMapping("/GetDeviceList")
 //    public Greeting greeting2(@RequestParam(value="name", defaultValue="World") String name) {
 //        return new Greeting(counter.incrementAndGet(),

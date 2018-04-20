@@ -12,10 +12,8 @@ public class AuthExceptionHandler  implements HandlerExceptionResolver {
     public ModelAndView resolveException(final HttpServletRequest request,
                                          final HttpServletResponse response, final Object handler,
                                          final Exception e) {
-
         ModelAndView model = new ModelAndView();
         model.setViewName("/common/error");
-
         return model;
     }
 }

@@ -1,5 +1,6 @@
 package jp.co.test.controller;
 
+import jp.co.test.dto.OnDemandVideoDto;
 import jp.co.test.dto.SetDeviceDto;
 import jp.co.test.dto.SetUploadVideoTimeDto;
 import jp.co.test.dto.response.ResultDto;
@@ -14,7 +15,7 @@ public class SetUploadVideoTimeController extends AbstractAPIController {
 
     @RequestMapping(value = "/100", method = {RequestMethod.POST}, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public ResultDto setDVRParameter(@RequestBody SetUploadVideoTimeDto form,
+    public ResultDto setDVRParameter(@RequestBody OnDemandVideoDto form,
                                      @RequestParam(value = "User", required = true) String user,
                                      @RequestParam(value = "SessionId", required = true) Integer sessionId) {
 
